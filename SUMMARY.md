@@ -1,8 +1,6 @@
 # Table of contents
 
 * [Initial page](README.md)
-* [Untitled](untitled.md)
-* [Untitled](untitled-1.md)
 
 ## PWA
 
@@ -11,4 +9,8 @@
 ## Dynamic Components
 
 * [Untitled](dynamic-components/untitled.md)
+
+## Performance
+
+* [Improving ngFor using trackBy pipe](performance/improving-ngfor-using-trackby-pipe.md)
 
