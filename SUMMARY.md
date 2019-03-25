@@ -5,10 +5,7 @@
 ## PWA
 
 * [Creating a PWA with ng-service-worker](pwa/creating-a-pwa-with-ng-service-worker.md)
-
-## Dynamic Components
-
-* [Untitled](dynamic-components/untitled.md)
+* [Links](pwa/links.md)
 
 ## Performance
 
