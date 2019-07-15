@@ -4,10 +4,24 @@
 * [Tutorials](tutorials-1.md)
 * [Tools](tools.md)
 
+## Links
+
+* [Performance](links/performance.md)
+* [PWA](links/links-1.md)
+* [Components \| Design System](links/components-or-design-system.md)
+* [NgRx](links/ngrx.md)
+* [Forms](links/forms.md)
+* [RxJS](links/rxjs.md)
+* [Universal](links/untitled.md)
+* [Testing](links/testing.md)
+* [GraphQL](links/graphql.md)
+* [Applications Demos](links/applications-demos.md)
+* [Nx \| Monorepo](links/nx-or-monorepo.md)
+* [Routing](links/routing.md)
+
 ## PWA
 
 * [Creating a PWA with ng-service-worker](pwa/creating-a-pwa-with-ng-service-worker.md)
-* [Links](pwa/links.md)
 
 ## Routing
 
@@ -31,8 +45,4 @@
 ## Testing
 
 * [Integrating Jest into Angular](testing/integrating-jest-into-angular.md)
-
-## Universal
-
-* [Untitled](universal/untitled.md)
 

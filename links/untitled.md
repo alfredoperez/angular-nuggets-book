@@ -1,4 +1,4 @@
-# Untitled
+# Universal
 
 {% embed url="https://blog.angular-university.io/angular-universal/" %}
 
