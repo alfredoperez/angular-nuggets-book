@@ -4,6 +4,10 @@
 * [Tutorials](tutorials-1.md)
 * [Tools](tools.md)
 
+## NX
+
+* [Setup project](nx/setup-project.md)
+
 ## Links
 
 * [Performance](links/performance.md)
