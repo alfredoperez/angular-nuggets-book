@@ -1,4 +1,4 @@
-# Passing Data between Routes in Angular v7.2
+# Passing Data between Routes
 
 {% embed url="https://netbasal.com/set-state-object-when-navigating-in-angular-7-2-b87c5b977bb" %}
 
