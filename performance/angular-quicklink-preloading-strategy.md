@@ -9,8 +9,7 @@ description: >-
 
 {% embed url="https://github.com/mgechev/ngx-quicklink" %}
 
-{% code-tabs %}
-{% code-tabs-item title="shared.module.ts" %}
+{% code title="shared.module.ts" %}
 ```typescript
 import { QuicklinkModule } from 'ngx-quicklink';
 ...
@@ -22,11 +21,9 @@ import { QuicklinkModule } from 'ngx-quicklink';
 })
 export class SharedModule {}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="app.module.ts" %}
+{% code title="app.module.ts" %}
 ```typescript
 import { QuicklinkModule } from 'ngx-quicklink';
 ...
@@ -39,6 +36,5 @@ import { QuicklinkModule } from 'ngx-quicklink';
 export class SharedModule {}
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 

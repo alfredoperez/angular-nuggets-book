@@ -6,8 +6,8 @@
 
 Code
 
-{% code-tabs %}
-{% code-tabs-item title="track-by-property.pipe.ts" %}
+{% tabs %}
+{% tab title="track-by-property.pipe.ts" %}
 ```typescript
 
 // Import the core angular services.
@@ -54,9 +54,9 @@ export class TrackByPropertyPipe implements PipeTransform {
  
 }
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="demo.component.ts" %}
+{% tab title="demo.component.ts" %}
 ```typescript
 // Import the core angular services.
 import { Component } from "@angular/core";
@@ -100,8 +100,8 @@ interface Friend {
 export class AppComponent {
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 
 

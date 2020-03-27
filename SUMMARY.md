@@ -6,7 +6,7 @@
 
 ## NX
 
-* [Setup project](nx/setup-project.md)
+* [Creating  Library and documentation](nx/setup-project.md)
 
 ## Links
 
