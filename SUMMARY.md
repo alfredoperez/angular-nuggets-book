@@ -8,9 +8,13 @@
 
 * [Simple Store using BehaviorSubject](rxjs/simple-store-using-behaviorsubject.md)
 
-## NgRx
+## NgRx - NgConf  Workshop Notes <a id="ngrx-ngconf-2020"></a>
 
-* [Untitled](ngrx/untitled.md)
+* [00 - Introduction](ngrx-ngconf-2020/00-introduction.md)
+* [01 - Actions](ngrx-ngconf-2020/untitled.md)
+* [02 - Reducers](ngrx-ngconf-2020/02-reducers.md)
+* [Guidelines](ngrx-ngconf-2020/guidelines.md)
+* [Effects](ngrx-ngconf-2020/effects.md)
 
 ## PWA
 
