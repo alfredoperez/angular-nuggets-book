@@ -8,5 +8,5 @@
 * Effects trigger side effects
 * Reducers handle transitions
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 

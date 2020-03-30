@@ -13,6 +13,7 @@
 * [00 - Introduction](ngrx-ngconf-2020/00-introduction.md)
 * [01 - Actions](ngrx-ngconf-2020/untitled.md)
 * [02 - Reducers](ngrx-ngconf-2020/02-reducers.md)
+* [03 - Selectors](ngrx-ngconf-2020/03-selectors.md)
 * [Guidelines](ngrx-ngconf-2020/guidelines.md)
 * [Effects](ngrx-ngconf-2020/effects.md)
 
