@@ -1,4 +1,4 @@
-# Guidelines and notes
+# My notes
 
 ## Folder Structure
 
@@ -17,7 +17,28 @@
 │ 
 ```
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
+
+## When to use it?
+
+`@ngrx/store` \(or Redux in general\) provides us with a lot of great features and can be used in a lot of use cases. But sometimes this pattern can be an overkill. Implementing it means we get the downside of using Redux \(a lot of extra code and complexity\) without benefiting of the upsides \(predictable state container and unidirectional data flow\).
+
+The NgRx core team has come up with a principle called **SHARI**, that can be used as a rule of thumb on data that needs to be added to the store.
+
+* **Shared**: State that is shared between many components and services
+* **Hydrated**: State that needs to be persisted and hydrated across page reloads
+* **Available**: State that needs to be available when re-entering routes
+* **Retrieved**: State that needs to be retrieved with a side effect, e.g. an HTTP request
+* **Impacted**: State that is impacted by other components
+
+Try not to over-engineer your state management layer. Data is often fetched via XHR requests or is being sent over a WebSocket, and therefore is handled on the server side. Always ask yourself **when** and **why** to put some data in a client side store and keep alternatives in mind. For example, use routes to reflect applied filters on a list or use a `BehaviorSubject` in a service if you need to store some simple data, such as settings. Mike Ryan gave a very good talk on this topic: [You might not need NgRx](https://youtu.be/omnwu_etHTY)
+
+#### Resources
+
+* [Reducing the Boilerplate with NgRx](https://www.youtube.com/watch?v=t3jx0EC-Y3c) by Mike Ryan and Brandon Roberts
+* [Do we really need @ngrx/store](https://blog.strongbrew.io/do-we-really-need-redux/) by Brecht Billiet
+* [Simple State Management with RxJS’s scan operator](https://juristr.com/blog/2018/10/simple-state-management-with-scan/) by Juri Strumpflohner
+* [You might not need NgRx](https://www.youtube.com/watch?v=omnwu_etHTY) by Myke Ryan
 
 ## Actions
 
@@ -84,6 +105,25 @@ import * as BooksApiActions from "./books-api.actions";
 export { BooksPageActions, BooksApiActions };
 ```
 {% endhint %}
+
+Actions can be created with `props` or fat arrows
+
+```typescript
+// With props
+export const updateBook = createAction(
+    '[Books Page] Update a book',
+    props<{
+        book: BookRequiredProps,
+        bookId: string
+    }>()
+);
+
+// With fat arrow
+export const getAuthStatusSuccess = createAction(
+    "[Auth/API] Get Auth Status Success",
+    (user: UserModel | null) => ({user})
+);
+```
 
 ## Reducers
 
@@ -343,31 +383,205 @@ This can be used for _**parameterized queries**_
 
 * Effects does not have to start with an action
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 * Effects can be used to elegantly connect to a WebSocket
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 * You can use effect to communicate to any API that returns observables. The following talks to the snack bar notification
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 * You can use effects to retry api calls
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 * You can write effects that doesn't dispatch any action, like the following example shows how it is used to open a modal
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 * Use effect to do handle cancellation
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2838%29.png)
+
+## Entity
+
+Use entities to facilitate working with collection, gives a good abstraction and helps reduce code
+
+![](../.gitbook/assets/image%20%2826%29.png)
+
+![](../.gitbook/assets/image%20%284%29.png)
+
+![](../.gitbook/assets/image%20%2814%29.png)
+
+Adapter provides selectors
+
+![](../.gitbook/assets/image%20%2837%29.png)
+
+Updating the reducer with the adapter
+
+![](../.gitbook/assets/image%20%2839%29.png)
+
+Using the selector with the adapter
+
+![](../.gitbook/assets/image%20%2841%29.png)
 
 
 
+Start by creating extends the `entityState`
 
+```typescript
+// From:
+
+// export interface State {
+//     collection: BookModel[];
+//     activeBookId: string | null;
+// }
+
+
+// To:
+export interface State extends EntityState<BookModel> {
+
+    activeBookId: string | null;
+}
+```
+
+Create an adapter and define the initial state with it.
+
+```typescript
+// From:
+
+// export const initialState: State = {
+//     collection: [],
+//     activeBookId: null
+// };
+
+// To:
+const adapter = createEntityAdapter<BookModel>();
+
+export const initialState: State = adapter.getInitialState({
+    activeBookId: null
+});
+```
+
+Out of the box it uses the 'id' as the id, but we can also specify custom id and comparer. E.g.
+
+```typescript
+const adapter = createEntityAdapter<BookModel>({
+    selectId: (model: BookModel) => model.name,
+    sortComparer:(a:BookModel,b:BookModel)=> a.name.localeCompare(b.name)
+});
+```
+
+Refactor the reducers
+
+```typescript
+    // on(BooksApiActions.bookCreated, (state, action) => {
+    //     return {
+    //         collection: createBook(state.collection, action.book),
+    //         activeBookId: null
+    //     };
+    // }),
+    on(BooksApiActions.bookCreated, (state, action) => {
+        return adapter.addOne(action.book, {
+            ...state,
+            activeBookId: null
+        })
+    }),
+    
+    // on(BooksApiActions.bookUpdated, (state, action) => {
+    //     return {
+    //         collection: updateBook(state.collection, action.book),
+    //         activeBookId: null
+    //     };
+    // }),
+    on(BooksApiActions.bookUpdated, (state, action) => {
+        return adapter.updateOne(
+            {id: action.book.id, changes: action.book},
+            {
+                ...state,
+                activeBookId: null
+            })
+    }),
+    
+    // on(BooksApiActions.bookDeleted, (state, action) => {
+    //     return {
+    //         ...state,
+    //         collection: deleteBook(state.collection, action.bookId)
+    //     };
+    // })
+    on(BooksApiActions.bookDeleted, (state, action) => {
+        return adapter.removeOne(action.bookId, state)
+    })
+```
+
+To create selectors we can get the selectors from the adapter
+
+```typescript
+// From:
+// export const selectAll = (state: State) => state.collection;
+// export const selectActiveBookId = (state: State) => state.activeBookId;
+// export const selectActiveBook = createSelector(
+//     selectAll,
+//     selectActiveBookId,
+//     (books, activeBookId) => books.find(book => book.id === activeBookId) || null
+// );
+
+// To:
+export const {selectAll, selectEntities} = adapter.getSelectors();
+export const selectActiveBookId = (state: State) => state.activeBookId;
+```
+
+#### [Adapter Collection Methods](https://ngrx.io/guide/entity/adapter#adapter-collection-methods)
+
+The entity adapter also provides methods for operations against an entity. These methods can change one to many records at a time. Each method returns the newly modified state if changes were made and the same state if no changes were made.
+
+* `addOne`: Add one entity to the collection
+* `addMany`: Add multiple entities to the collection
+* `addAll`: Replace current collection with provided collection
+* `setOne`: Add or Replace one entity in the collection
+* `removeOne`: Remove one entity from the collection
+* `removeMany`: Remove multiple entities from the collection, by id or by predicate
+* `removeAll`: Clear entity collection
+* `updateOne`: Update one entity in the collection
+* `updateMany`: Update multiple entities in the collection
+* `upsertOne`: Add or Update one entity in the collection
+* `upsertMany`: Add or Update multiple entities in the collection
+* `map`: Update multiple entities in the collection by defining a map function, similar to [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+## Meta-reducers
+
+* Intercept actions before they are reduced
+* Intercept state before it  is emitted
+* Can change control flow of the Store
+
+![](../.gitbook/assets/meta-reducer.gif)
+
+Most common use cases:
+
+* Reset state when a signout action occurs
+* for debugging \(creating loggger\)
+* to rehydrate when application starts up
+
+It is like a plugin system for the store, they behave similar to the interceptors
+
+  
+An example of this can be to use it in a logger
+
+```typescript
+const logger = (reducer: ActionReducer<any, any>) => (state: any, action: Action) => {
+    console.log('Previous State', state);
+    console.log('Action', action);
+
+    const nextState = reducer(state, action);
+
+    console.log('Next State', nextState);
+    return nextState;
+};
+
+export const metaReducers: MetaReducer<State>[] = [logger];
+```
 
 ## Other Links
 

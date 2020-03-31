@@ -15,7 +15,7 @@
 * [02 - Reducers](ngrx-ngconf-2020/02-reducers.md)
 * [03 - Selectors](ngrx-ngconf-2020/03-selectors.md)
 * [04 - Effects](ngrx-ngconf-2020/04-effects.md)
-* [Guidelines and notes](ngrx-ngconf-2020/guidelines-and-notes.md)
+* [My notes](ngrx-ngconf-2020/my-notes.md)
 
 ## PWA
 
