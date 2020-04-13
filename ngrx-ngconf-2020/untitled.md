@@ -4,7 +4,11 @@
 
 * Unique events get unique actions
 * Actions are grouped by their source
+  * meaning they should be grouped by each page
+  * located close to the components dispatching them for traceability of @outputs
 * Actions are never reused - Present tense for action names
+
+{% file src="../.gitbook/assets/image-action7.png" %}
 
 ### Benefits
 

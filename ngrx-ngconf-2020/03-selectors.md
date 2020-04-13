@@ -16,5 +16,12 @@ This can be made explicit
 
 ![](../.gitbook/assets/image%20%2816%29.png)
 
+### Tips
 
+* The createSelector allows memoized and cached value returns, so try to take advantage of this. 
+  * Create selectors that can be used by components that can be used without additional modification.
+* Instead of having API services transform the data, transform the data in the selectors.
+  * Easier to test selectors
+  * Easier to hydrate the stores with original API data
+  * Easier to re-use and share the original API data in the store that can be transformed for other view-models.
 

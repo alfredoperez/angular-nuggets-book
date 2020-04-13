@@ -34,3 +34,9 @@ Modify data in a immutable way
 
 ![](../.gitbook/assets/image%20%2828%29.png)
 
+### Recommendations from NgRx Creators
+
+* States and reducers need to go in the shared directory  that can be globally accessed.
+* States and reducers need to be in the same reducer file, as the reducer is working directly with the defined state.
+  * This was their recommendation, but it wasn't a strong opinion. We should evaluate whether it's preferable to have a separate `.state` file, in the same directory.
+
