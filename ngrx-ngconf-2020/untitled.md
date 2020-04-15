@@ -18,7 +18,7 @@
 
 ### Benefits
 
-This makes easier to debug, and the specific names makes it easy to back track.  
+This makes easier to **debug**, and the specific names makes it **easy to back track.**  
 It is easier to refactoring, because of the SRP if multiple components use the same service is harder to abstract.  
 
 
@@ -39,6 +39,15 @@ An action file is made of a collection of actions
 Then it can be used in the components
 
 ![](../.gitbook/assets/image%20%282%29.png)
+
+The index file can be used to define the names for the actions exported.
+
+```typescript
+import * as BooksPageActions from "./books-page.actions";
+import * as BooksApiActions from "./books-api.actions";
+
+export { BooksPageActions, BooksApiActions };
+```
 
 ## Event Storming
 

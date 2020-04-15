@@ -18,10 +18,11 @@ This can be made explicit
 
 ### Tips
 
-* The createSelector allows memoized and cached value returns, so try to take advantage of this. 
+* The `createSelector` allows memoized and cached value returns, so try to take advantage of this. 
   * Create selectors that can be used by components that can be used without additional modification.
-* Instead of having API services transform the data, transform the data in the selectors.
+* When using the selector in the component is recommended to **initialize in the constructor**. If using the strict mode in TypeScript, the compiler will not be able to know that the selectors where initialized on `ngOnInit`
+* Instead of having API services transform the data, **transform the data in the selectors**.
   * Easier to test selectors
   * Easier to hydrate the stores with original API data
-  * Easier to re-use and share the original API data in the store that can be transformed for other view-models.
+  * Easier to **re-use and share the original API data** in the store that can be transformed for other view-models.
 

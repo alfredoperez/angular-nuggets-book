@@ -1,6 +1,6 @@
 # 04 - Effects
 
-![](../.gitbook/assets/image%20%2842%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
 We can move the interaction to the service from the components to the effects
 
