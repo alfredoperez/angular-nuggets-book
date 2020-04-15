@@ -583,9 +583,13 @@ const logger = (reducer: ActionReducer<any, any>) => (state: any, action: Action
 export const metaReducers: MetaReducer<State>[] = [logger];
 ```
 
+## Wrapping Up
+
+Presentation al components should not interact with the store
+
+
+
 ## Other Links
-
-
 
 * ngrx example application
 
@@ -606,6 +610,8 @@ export const metaReducers: MetaReducer<State>[] = [logger];
 * Avoiding swithcMaprelated bugs
 
 {% embed url="https://ncjamieson.com/avoiding-switchmap-related-bugs/" %}
+
+{% embed url="https://www.youtube.com/watch?v=E7GKnjGCXzU" %}
 
 
 

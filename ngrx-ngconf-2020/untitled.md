@@ -1,6 +1,12 @@
 # 01 - Actions
 
-## Good Action Hygiene
+## 
+
+> ### Actions are like the global @output for your whole app
+
+![](../.gitbook/assets/image-action1.png)
+
+### Good Action Hygiene
 
 * Unique events get unique actions
 * Actions are grouped by their source
@@ -8,7 +14,7 @@
   * located close to the components dispatching them for traceability of @outputs
 * Actions are never reused - Present tense for action names
 
-{% file src="../.gitbook/assets/image-action7.png" %}
+![](../.gitbook/assets/image-action7.png)
 
 ### Benefits
 

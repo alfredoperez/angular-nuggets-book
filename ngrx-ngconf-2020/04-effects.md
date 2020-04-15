@@ -18,13 +18,13 @@ Then register the effects. Note: effects are subscribed immediately
 
 ### What map operator should I use?
 
-{% file src="../.gitbook/assets/image-effects5.png" %}
+![](../.gitbook/assets/image-effects5.png)
 
-{% file src="../.gitbook/assets/image-effects6.png" %}
+![](../.gitbook/assets/image-effects6.png)
 
 _Using the switchMap as the default map operator in effects is dangerous._
 
-{% file src="../.gitbook/assets/image-effects7.png" %}
+![](../.gitbook/assets/image-effects7.png)
 
 _Use concatMap when the ordering of the operation matters_
 

@@ -6,34 +6,32 @@ description: 'Entity, Meta-Reducers, ngrx/data, and ngrx/component'
 
 ### Entities
 
-{% file src="../.gitbook/assets/image-entity1.png" %}
+![](../.gitbook/assets/image-entity1.png)
 
 * Common CRUD operations are basically working with collections.
   * Trying to update many items in the collections at the same time can be problematic.
 * Use Entity to assist performing operations on collections.
   * Using ngrx/entity is performant
 
-{% file src="../.gitbook/assets/image-entity1.png" %}
+![](../.gitbook/assets/image-entity2.png)
 
-{% file src="../.gitbook/assets/image-entity2.png" %}
+![](../.gitbook/assets/image-entity3.png)
 
-{% file src="../.gitbook/assets/image-entity3.png" %}
+![](../.gitbook/assets/image-entity4.png)
 
-{% file src="../.gitbook/assets/image-entity4.png" %}
+![](../.gitbook/assets/image-entity5.png)
 
-{% file src="../.gitbook/assets/image-entity5.png" %}
+![](../.gitbook/assets/image-entity6.png)
 
-{% file src="../.gitbook/assets/image-entity6.png" %}
+![](../.gitbook/assets/image-entity7.png)
 
-{% file src="../.gitbook/assets/image-entity7.png" %}
-
-{% file src="../.gitbook/assets/image-entity8.png" %}
+![](../.gitbook/assets/image-entity8.png)
 
 ### Meta-Reducers
 
-{% file src="../.gitbook/assets/image-metareducer1.png" %}
+![](../.gitbook/assets/image-metareducer1.png)
 
-{% file src="../.gitbook/assets/meta-reducer.gif" %}
+![](../.gitbook/assets/meta-reducer.gif)
 
 ### @ngrx/data
 
