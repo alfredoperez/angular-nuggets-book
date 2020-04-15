@@ -12,5 +12,5 @@ Well, it's really supposed to work a lot like the components. Components have in
 * Effects trigger side effects
 * Reducers handle transitions
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](../.gitbook/assets/image%20%2852%29.png)
 

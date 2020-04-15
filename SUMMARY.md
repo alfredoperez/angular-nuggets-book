@@ -15,7 +15,10 @@
 * [02 - Reducers](ngrx-ngconf-2020/02-reducers.md)
 * [03 - Selectors](ngrx-ngconf-2020/03-selectors.md)
 * [04 - Effects](ngrx-ngconf-2020/04-effects.md)
-* [05 - Other tools](ngrx-ngconf-2020/05-other-tools.md)
+* [05 - Entity](ngrx-ngconf-2020/05-other-tools.md)
+* [06 - Other Tools and Libraries](ngrx-ngconf-2020/06-other-tools-and-libraries.md)
+* [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
+* [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
 * [My notes](ngrx-ngconf-2020/my-notes.md)
 
 ## PWA

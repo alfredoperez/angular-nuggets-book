@@ -17,7 +17,7 @@
 │ 
 ```
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 ## When to use it?
 
@@ -391,41 +391,41 @@ This can be used for _**parameterized queries**_
 
 * You can use effect to communicate to any API that returns observables. The following talks to the snack bar notification
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
 * You can use effects to retry api calls
 
-![](../.gitbook/assets/image%20%2831%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 * You can write effects that doesn't dispatch any action, like the following example shows how it is used to open a modal
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 * Use effect to do handle cancellation
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](../.gitbook/assets/image%20%2845%29.png)
 
 ## Entity
 
 Use entities to facilitate working with collection, gives a good abstraction and helps reduce code
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 Adapter provides selectors
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 Updating the reducer with the adapter
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](../.gitbook/assets/image%20%2847%29.png)
 
 Using the selector with the adapter
 
-![](../.gitbook/assets/image%20%2842%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 
 

@@ -2,9 +2,7 @@
 description: 'Entity, Meta-Reducers, ngrx/data, and ngrx/component'
 ---
 
-# 05 - Other tools
-
-### Entities
+# 05 - Entity
 
 ![](../.gitbook/assets/image-entity1.png)
 
@@ -13,37 +11,111 @@ description: 'Entity, Meta-Reducers, ngrx/data, and ngrx/component'
 * Use Entity to assist performing operations on collections.
   * Using ngrx/entity is performant
 
-![](../.gitbook/assets/image-entity2.png)
+### How to add @ngrx/entity
 
-![](../.gitbook/assets/image-entity3.png)
+* Start by creating a `state` that extends the `entityState`
 
-![](../.gitbook/assets/image-entity4.png)
+```typescript
+// From:
 
-![](../.gitbook/assets/image-entity5.png)
+// export interface State {
+//     collection: BookModel[];
+//     activeBookId: string | null;
+// }
 
-![](../.gitbook/assets/image-entity6.png)
 
-![](../.gitbook/assets/image-entity7.png)
+// To:
+export interface State extends EntityState<BookModel> {
 
-![](../.gitbook/assets/image-entity8.png)
+    activeBookId: string | null;
+}
+```
 
-### Meta-Reducers
+* Create an adapter and define the initial state with it.
 
-![](../.gitbook/assets/image-metareducer1.png)
+**Note** that the `collection` is no longer needed
 
-![](../.gitbook/assets/meta-reducer.gif)
+```typescript
+// From:
 
-### @ngrx/data
+// export const initialState: State = {
+//     collection: [],
+//     activeBookId: null
+// };
 
-* Goal is to separate what data the client needs from how to retrieve it
-* Large apps may not scale so well with app with large set of entities
-* NgRx Data is built with NgRx State for full reactivity, and simplifies the code bulkiness
-* You don’t need to use NgRx State to make use of NgRx data.
+// To:
+const adapter = createEntityAdapter<BookModel>();
 
-### @ngrx/component
+export const initialState: State = adapter.getInitialState({
+    activeBookId: null
+});
+```
 
-* New in NgRx version 9 with Ivy support!
-* @ngrx/components uses observables to detect changes and schedules the change detecction
-* Instead of "foo$ \| async", use "foo$ \| ngRxPush"
-* Instead of "_ngIf=foo$ \| async as foo" use "_ngrxLet=foo$"
+* Out of the box, it uses the 'id' as the id, but we can also specify custom id and comparer.
+
+```typescript
+const adapter = createEntityAdapter<BookModel>({
+    selectId: (model: BookModel) => model.name,
+    sortComparer:(a:BookModel,b:BookModel)=> a.name.localeCompare(b.name)
+});
+```
+
+* Refactor the reducers to use the entity adapter
+
+```typescript
+    // on(BooksApiActions.bookCreated, (state, action) => {
+    //     return {
+    //         collection: createBook(state.collection, action.book),
+    //         activeBookId: null
+    //     };
+    // }),
+    on(BooksApiActions.bookCreated, (state, action) => {
+        return adapter.addOne(action.book, {
+            ...state,
+            activeBookId: null
+        })
+    }),
+
+    // on(BooksApiActions.bookUpdated, (state, action) => {
+    //     return {
+    //         collection: updateBook(state.collection, action.book),
+    //         activeBookId: null
+    //     };
+    // }),
+    on(BooksApiActions.bookUpdated, (state, action) => {
+        return adapter.updateOne(
+            {id: action.book.id, changes: action.book},
+            {
+                ...state,
+                activeBookId: null
+            })
+    }),
+
+    // on(BooksApiActions.bookDeleted, (state, action) => {
+    //     return {
+    //         ...state,
+    //         collection: deleteBook(state.collection, action.bookId)
+    //     };
+    // })
+    on(BooksApiActions.bookDeleted, (state, action) => {
+        return adapter.removeOne(action.bookId, state)
+    })
+```
+
+* Then create selectors using the entity adapter
+
+```typescript
+// From:
+// export const selectAll = (state: State) => state.collection;
+// export const selectActiveBookId = (state: State) => state.activeBookId;
+// export const selectActiveBook = createSelector(
+//     selectAll,
+//     selectActiveBookId,
+//     (books, activeBookId) => books.find(book => book.id === activeBookId) || null
+// );
+
+// To:
+export const {selectAll, selectEntities} = adapter.getSelectors();
+export const selectActiveBookId = (state: State) => state.activeBookId;
+```
 
