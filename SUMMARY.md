@@ -19,7 +19,6 @@
 * [06 - Other Tools and Libraries](ngrx-ngconf-2020/06-other-tools-and-libraries.md)
 * [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
 * [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
-* [My notes](ngrx-ngconf-2020/my-notes.md)
 
 ## PWA
 

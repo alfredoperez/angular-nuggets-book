@@ -38,5 +38,9 @@ Another related comment by Alex:
 >
 > Some of the things I _**don't put in the store**_ are **Form Controls** \(since it is already a reactive state\), **the local state within components** \(even if it interacts with the network\), some of the lifecycle state for a component. Basically, **the first thing I asked myself is how shareable is the state, how much does the application needs to know about this.**
 
-\*\*\*\*
+## How and where to handle loading and error states of ajax calls
+
+{% embed url="https://medium.com/angular-in-depth/ngrx-how-and-where-to-handle-loading-and-error-states-of-ajax-calls-6613a14f902d" %}
+
+
 
