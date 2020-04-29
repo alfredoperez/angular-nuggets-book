@@ -1,16 +1,16 @@
 # 04 - Effects
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2860%29.png)
 
 We can move the interaction to the service from the components to the effects
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 Then register the effects. Note: effects are subscribed immediately
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 ### Tips
 
@@ -37,27 +37,27 @@ _Use `concatMap` when the ordering of the operation matters_
 
 Effects does not have to start with an action:
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
 Effects can be used to elegantly connect to a WebSocket:
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2832%29.png)
 
 You can use an effect to communicate to any API/Library that returns observables. The following example shows this by communicating with the **snack bar notification API:**
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 
 Effects can be used to retry API Calls:
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 It is OK to write effects that don't dispatch any action like the following example shows how it is used to open a modal
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2859%29.png)
 
 Effects can be used to handle a cancelation
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 ### Good Effects Hygiene
 

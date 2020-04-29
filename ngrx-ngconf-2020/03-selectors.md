@@ -1,20 +1,20 @@
 # 03 - Selectors
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 This is where the performance of NGRX comes, it allows to create reactive applications
 
 Example of selector
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 Selectors are composable:
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 This can be made explicit
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2821%29.png)
 
 ### Tips
 

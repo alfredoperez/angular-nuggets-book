@@ -20,6 +20,10 @@
 * [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
 * [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
 
+## Advanced NgRx - ng-conf 2019
+
+* [Introduction](advanced-ngrx-ng-conf-2019/introduction.md)
+
 ## PWA
 
 * [Creating a PWA with ng-service-worker](pwa/creating-a-pwa-with-ng-service-worker.md)
