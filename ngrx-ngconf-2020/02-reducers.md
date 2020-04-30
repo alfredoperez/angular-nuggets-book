@@ -18,7 +18,7 @@ To create a reducer
 
 Reducers are in a shared folder because the state is global
 
-![](../.gitbook/assets/image%20%2874%29.png)
+![](../.gitbook/assets/image%20%2876%29.png)
 
 ![](../.gitbook/assets/image.png)
 
@@ -32,7 +32,7 @@ The index file declares the state
 
 Modify data in a immutable way. 
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2851%29.png)
 
 Create helper functions to handle the data manipulation of collections.
 
@@ -105,7 +105,7 @@ export function reducer(state: State | undefined, action: Action) {
 The `example-app` on the [ngrx repo](https://github.com/ngrx/platform/tree/master/projects/example-app/src/app/books) shows a reducer file under the feature and one global in the app
 {% endhint %}
 
-![](../.gitbook/assets/image%20%2869%29.png)
+![](../.gitbook/assets/image%20%2871%29.png)
 
 * States and reducers need to be in the same reducer file, as the reducer is working directly with the defined state.
   * This was their recommendation, but it wasn't a strong opinion. We should evaluate whether it's preferable to have a separate `.state` file, in the same directory.

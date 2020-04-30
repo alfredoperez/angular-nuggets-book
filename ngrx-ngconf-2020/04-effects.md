@@ -1,6 +1,6 @@
 # 04 - Effects
 
-![](../.gitbook/assets/image%20%2878%29.png)
+![](../.gitbook/assets/image%20%2881%29.png)
 
 We can move the interaction to the service from the components to the effects
 
@@ -37,11 +37,11 @@ _Use `concatMap` when the ordering of the operation matters_
 
 Effects does not have to start with an action:
 
-![](../.gitbook/assets/image%20%2855%29.png)
+![](../.gitbook/assets/image%20%2856%29.png)
 
 Effects can be used to elegantly connect to a WebSocket:
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](../.gitbook/assets/image%20%2845%29.png)
 
 You can use an effect to communicate to any API/Library that returns observables. The following example shows this by communicating with the **snack bar notification API:**
 
@@ -53,7 +53,7 @@ Effects can be used to retry API Calls:
 
 It is OK to write effects that don't dispatch any action like the following example shows how it is used to open a modal
 
-![](../.gitbook/assets/image%20%2877%29.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 Effects can be used to handle a cancelation
 
