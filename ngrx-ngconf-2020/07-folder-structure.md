@@ -48,7 +48,7 @@ import { BooksPageActions } from "app/modules/book-collection/actions";
 
 ###  Folder structure followed in example app from @ngrx
 
-![](../.gitbook/assets/image%20%2865%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
 ```text
 ├─ books\

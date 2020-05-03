@@ -30,11 +30,11 @@ export const enter = createAction("[Movies Page] Enter")
 
 Metadata can be added to the actions
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 An action file is made of a collection of actions
 
-![](../.gitbook/assets/image%20%2866%29.png)
+![](../.gitbook/assets/image%20%2871%29.png)
 
 Then it can be used in the components
 
@@ -51,13 +51,13 @@ export { BooksPageActions, BooksApiActions };
 
 ## Event Storming
 
-![](../.gitbook/assets/image%20%2854%29.png)
+![](../.gitbook/assets/image%20%2859%29.png)
 
 ### Example
 
 This is the event storming a a page that creates books
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 ### 
 
