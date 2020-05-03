@@ -34,7 +34,7 @@ Metadata can be added to the actions
 
 An action file is made of a collection of actions
 
-![](../.gitbook/assets/image%20%2864%29.png)
+![](../.gitbook/assets/image%20%2866%29.png)
 
 Then it can be used in the components
 
@@ -51,7 +51,7 @@ export { BooksPageActions, BooksApiActions };
 
 ## Event Storming
 
-![](../.gitbook/assets/image%20%2853%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 ### Example
 

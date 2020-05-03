@@ -19,10 +19,16 @@
 * [06 - Other Tools and Libraries](ngrx-ngconf-2020/06-other-tools-and-libraries.md)
 * [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
 * [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
+* [09 - Rules of thumb and pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
 
 ## Advanced NgRx - ng-conf 2019
 
 * [Introduction](advanced-ngrx-ng-conf-2019/introduction.md)
+
+## NgRx courses and videos
+
+* [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ngrx-courses-and-videos/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)
+* [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ngrx-courses-and-videos/untitled.md)
 
 ## Accessibility Training <a id="accessibility"></a>
 

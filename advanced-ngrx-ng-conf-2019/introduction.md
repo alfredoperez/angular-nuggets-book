@@ -35,17 +35,17 @@ Consider:
 
 Do not try to cheat by creating a single action that updates everything. **Actions should be SRP**
 
+![](../.gitbook/assets/image%20%2849%29.png)
+
+![](../.gitbook/assets/image%20%2862%29.png)
+
+![](../.gitbook/assets/image%20%2859%29.png)
+
+![](../.gitbook/assets/image%20%2856%29.png)
+
 ![](../.gitbook/assets/image%20%2848%29.png)
 
-![](../.gitbook/assets/image%20%2860%29.png)
-
-![](../.gitbook/assets/image%20%2857%29.png)
-
-![](../.gitbook/assets/image%20%2854%29.png)
-
-![](../.gitbook/assets/image%20%2847%29.png)
-
-![](../.gitbook/assets/image%20%2869%29.png)
+![](../.gitbook/assets/image%20%2871%29.png)
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
