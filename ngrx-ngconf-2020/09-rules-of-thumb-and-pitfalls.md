@@ -61,11 +61,13 @@ Effect dominoes are actions that are dispatch which trigger effects that dispatc
 
 #### Beware of selector based effects
 
-#### Try to not use selectors in the efffects
+#### Try to not use selectors in the effects
 
 ## Components
 
+#### Make component simpler and purer by passing the data directly
 
+If components need to use store to select data it create a dependency to the store and hurts the ability to reuse the component
 
 
 
