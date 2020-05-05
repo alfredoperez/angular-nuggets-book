@@ -2,7 +2,7 @@
 
 {% embed url="https://www.youtube.com/watch?v=JP4dEM4bjE8&t=367s" %}
 
-![](../.gitbook/assets/image%20%2860%29.png)
+![](../.gitbook/assets/image%20%2862%29.png)
 
 ## Bloated Stores
 
@@ -28,7 +28,7 @@ Use selectors to map data
 
 use selectors to create view models
 
-![](../.gitbook/assets/image%20%2856%29.png)
+![](../.gitbook/assets/image%20%2858%29.png)
 
 ## Command-Based Actions
 
@@ -46,7 +46,7 @@ Actions should be unique, a user clicking a certain button vs a similar button i
 
 if 1 event  occurs it should be1 action
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 If somebody submits a form to put some to-do sent they might dispatch actions to  
 1\)  post the to do  
@@ -71,11 +71,11 @@ Go through the UI and find what are all the thing that can be treat as an action
 
 Effect dominoes are actions that are dispatch which trigger effects that dispatch action and so on
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 Instead Leverage Independent Effects and handle them independently
 
-![](../.gitbook/assets/image%20%2892%29.png)
+![](../.gitbook/assets/image%20%2894%29.png)
 
 Every effect does a specifc task. We have taken off the parts which are both independent and generic and split them off into thir own effects. 
 
@@ -91,7 +91,7 @@ By adding more action that signify that the effect has completed, and tied the c
 
 The following example is subscribing to the store. 
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 There is not easy way to trace what actions modified the state. This can also trigger that effect start happening not in purpose when some state changes
 

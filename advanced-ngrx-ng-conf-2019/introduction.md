@@ -31,21 +31,21 @@ Consider:
 
 
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 Do not try to cheat by creating a single action that updates everything. **Actions should be SRP**
 
+![](../.gitbook/assets/image%20%2855%29.png)
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
+![](../.gitbook/assets/image%20%2866%29.png)
+
+![](../.gitbook/assets/image%20%2863%29.png)
+
 ![](../.gitbook/assets/image%20%2853%29.png)
 
-![](../.gitbook/assets/image%20%2867%29.png)
-
-![](../.gitbook/assets/image%20%2864%29.png)
-
-![](../.gitbook/assets/image%20%2861%29.png)
-
-![](../.gitbook/assets/image%20%2851%29.png)
-
-![](../.gitbook/assets/image%20%2876%29.png)
+![](../.gitbook/assets/image%20%2878%29.png)
 
 ![](../.gitbook/assets/image%20%281%29.png)
 

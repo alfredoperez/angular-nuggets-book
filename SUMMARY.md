@@ -32,6 +32,7 @@
 
 ## Accessibility Training <a id="accessibility"></a>
 
+* [Dynamic Web](accessibility/dynamic-web.md)
 * [Session One](accessibility/session-one.md)
 
 ## PWA

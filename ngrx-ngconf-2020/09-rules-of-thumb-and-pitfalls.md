@@ -40,7 +40,7 @@ To keep the store state in a usable format for multiple selectors and components
 
 ### Use selectors to create View Model
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
 #### Why?
 
@@ -57,7 +57,7 @@ This helps with refactoring when the state changes it is easier to modify the hi
 Effect dominoes are actions that are dispatch which trigger effects that dispatch action and so on.  A  heusristic that can be used is, "allow action to be dispatched which triggers effect which are allowed to dispatch one more action that can be only reduced". There are valid reasons to break this  
 
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 #### Beware of selector based effects
 
