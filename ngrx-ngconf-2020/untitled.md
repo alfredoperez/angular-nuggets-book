@@ -4,7 +4,11 @@
 
 > ### Actions are like the global @output for your whole app
 
+![](../.gitbook/assets/screen-shot-2020-05-31-at-3.32.37-pm.png)
+
 ![](../.gitbook/assets/image-action1.png)
+
+![](../.gitbook/assets/screen-shot-2020-05-31-at-3.34.12-pm.png)
 
 ### Good Action Hygiene
 
