@@ -105,6 +105,12 @@ My recommendation is to select data needed and pass it while navigating.
 
 {{ TBD }}
 
+
+
+## Atomic State and State Machines?
+
+{{ TBD }}
+
 ## How and where to handle loading and error states of ajax calls?
 
 {{ TBD }}
