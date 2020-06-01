@@ -18,9 +18,9 @@
 * [05 - Entity](ngrx-ngconf-2020/05-other-tools.md)
 * [06 - Other Tools and Libraries](ngrx-ngconf-2020/06-other-tools-and-libraries.md)
 * [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
-* [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
-* [10 - Links](ngrx-ngconf-2020/10-links.md)
-* [09 - Best Practices and Pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
+* [08 - Links](ngrx-ngconf-2020/10-links.md)
+* [09 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
+* [10 - Best Practices and Pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
 
 ## Advanced NgRx - ng-conf 2019
 

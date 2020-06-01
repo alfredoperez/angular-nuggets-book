@@ -1,4 +1,4 @@
-# 09 - Best Practices and Pitfalls
+# 10 - Best Practices and Pitfalls
 
 ## Store
 
