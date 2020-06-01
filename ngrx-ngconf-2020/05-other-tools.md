@@ -13,6 +13,8 @@ description: 'Entity, Meta-Reducers, ngrx/data, and ngrx/component'
 
 ### How to add @ngrx/entity
 
+![](../.gitbook/assets/image%20%2896%29.png)
+
 * Start by creating a `state` that extends the `entityState`
 
 ```typescript
@@ -63,6 +65,14 @@ const adapter = createEntityAdapter<BookModel>({
 * Refactor the reducers to use the entity adapter
 
 ```typescript
+const createBook = (books: BookModel[], book: BookModel) => [...books, book];
+const updateBook = (books: BookModel[], changes: BookModel) =>
+  books.map(book => {
+    return book.id === changes.id ? Object.assign({}, book, changes) : book;
+  });
+const deleteBook = (books: BookModel[], bookId: string) =>
+   books.filter(book => bookId !== book.id);
+    
     // on(BooksApiActions.bookCreated, (state, action) => {
     //     return {
     //         collection: createBook(state.collection, action.book),
@@ -117,5 +127,12 @@ const adapter = createEntityAdapter<BookModel>({
 // To:
 export const {selectAll, selectEntities} = adapter.getSelectors();
 export const selectActiveBookId = (state: State) => state.activeBookId;
+export const selectActiveBook = createSelector(
+  selectEntities,
+  selectActiveBookId,
+  (booksEntities, activeBookId) => {
+    return activeBookId ? booksEntities[activeBookId]! : null;
+  }
+);
 ```
 

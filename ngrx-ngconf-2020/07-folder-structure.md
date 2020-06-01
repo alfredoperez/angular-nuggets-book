@@ -2,17 +2,11 @@
 
 Following the LIFT principle:
 
-*  **L**ocating our code is easy
-*  **I**dentify code at a glance
-*  **F**lat file structure for as long as possible
-*  **T**ry to stay DRY - don’t repeat yourself
+![](../.gitbook/assets/image%20%2897%29.png)
 
 ##  Key Takeaways
 
-* Put state in a shared place separate from features
-* Effects, components, and actions belong to features
-* Some effects can be shared
-* Reducers reach into modules action barrels
+![](../.gitbook/assets/image%20%2898%29.png)
 
 ##  Folder structure followed in the workshop
 
@@ -33,12 +27,7 @@ Following the LIFT principle:
 
 * The index file in the _actions_ folder was using action barrels like the following:
 
-```typescript
-import * as BooksPageActions from "./books-page.actions";
-import * as BooksApiActions from "./books-api.actions";
-
-export { BooksPageActions, BooksApiActions };
-```
+![](../.gitbook/assets/image%20%2895%29.png)
 
 * This made easier and more readable at the time of importing it:
 
