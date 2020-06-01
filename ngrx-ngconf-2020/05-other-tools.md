@@ -13,7 +13,7 @@ description: 'Entity, Meta-Reducers, ngrx/data, and ngrx/component'
 
 ### How to add @ngrx/entity
 
-![](../.gitbook/assets/image%20%2896%29.png)
+![](../.gitbook/assets/image%20%2898%29.png)
 
 * Start by creating a `state` that extends the `entityState`
 

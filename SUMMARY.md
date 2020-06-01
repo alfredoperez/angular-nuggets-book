@@ -20,6 +20,7 @@
 * [07 - Folder Structure](ngrx-ngconf-2020/07-folder-structure.md)
 * [08 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
 * [09 - Best Practices and Pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
+* [10 - Links](ngrx-ngconf-2020/10-links.md)
 
 ## Advanced NgRx - ng-conf 2019
 

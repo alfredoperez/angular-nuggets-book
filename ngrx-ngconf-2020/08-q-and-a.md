@@ -42,7 +42,72 @@ Another related comment by Alex:
 >
 > Some of the things I _**don't put in the store**_ are **Form Controls** \(since it is already a reactive state\), **the local state within components** \(even if it interacts with the network\), some of the lifecycle state for a component. Basically, **the first thing I asked myself is how shareable is the state, how much does the application needs to know about this.**
 
-## How and where to handle loading and error states of ajax calls
+The following are from the "Advanced NgRx" Workshop from ng-conf 2019  
+
+
+![](../.gitbook/assets/image%20%2895%29.png)
+
+## How to keep the old model and new model when editing an entity?
+
+This question originated when discussing about how to do `JSONPatch` since it is required to have the original data and the modified to generate the set of commands.
+
+#### Keep Original Data from API in the Store
+
+We always should have the original data provided by the API  in the store and the data transformation or mapping is done in the selectors.
+
+It is wrong to keep flatten view models directly in the store because it hard to shared the same view model in different component that might not have the same view model. 
+
+If the data in the store is only shared by a single view, it should not be in the store.
+
+#### Use the form value to have the new value
+
+The form should have the new value of the entity. Even if it is a collection of form groups, we should rely that we are gettting the new value from the form.
+
+**Selector to get Original Data + Transformed Form Value**
+
+## **Are resolvers needed when using NgRx?**
+
+> A data provider class can be used with the router to **resolve data during navigation**. ****The router will then **wait for the data t**o be resolved before the route is finally activated.
+
+{% embed url="https://angular.io/api/router/Resolve\#resolve" %}
+
+There is not a pattern of how to use resolvers when using ngrx. I found the following examples:
+
+* Resolvers just dispatching effects
+
+![](../.gitbook/assets/image%20%28103%29.png)
+
+* Resolvers waiting for the data to be returned
+
+![](../.gitbook/assets/image%20%2899%29.png)
+
+* Resolvers with explicit wait for data to be loading and redirection
+
+![](../.gitbook/assets/image%20%28102%29.png)
+
+Recommendations:
+
+* Use a guard if it is needed to navigate somewhere else
+* It is cleaner to have the `dispatch` calls in the  in the same component to visualize what actions is dispatching
+* Avoid resolvers since the component is not even using the router to read the resolved data
+
+## How to dispatch a single action per effect?
+
+{{ TBD }}
+
+## Should you use selectors in guards of overlays or modals?
+
+No, It makes it harder to re-use the overlay or modal from any other view.
+
+My recommendation is to select data needed and pass it while navigating.
+
+## Where should we initialize the observables?
+
+{{ TBD }}
+
+## How and where to handle loading and error states of ajax calls?
+
+{{ TBD }}
 
 {% embed url="https://medium.com/angular-in-depth/ngrx-how-and-where-to-handle-loading-and-error-states-of-ajax-calls-6613a14f902d" %}
 

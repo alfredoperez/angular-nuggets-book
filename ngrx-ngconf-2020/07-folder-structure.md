@@ -2,11 +2,11 @@
 
 Following the LIFT principle:
 
-![](../.gitbook/assets/image%20%2897%29.png)
+![](../.gitbook/assets/image%20%28100%29.png)
 
 ##  Key Takeaways
 
-![](../.gitbook/assets/image%20%2898%29.png)
+![](../.gitbook/assets/image%20%28104%29.png)
 
 ##  Folder structure followed in the workshop
 
@@ -27,7 +27,7 @@ Following the LIFT principle:
 
 * The index file in the _actions_ folder was using action barrels like the following:
 
-![](../.gitbook/assets/image%20%2895%29.png)
+![](../.gitbook/assets/image%20%2897%29.png)
 
 * This made easier and more readable at the time of importing it:
 
