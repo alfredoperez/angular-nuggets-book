@@ -101,11 +101,10 @@ No, It makes it harder to re-use the overlay or modal from any other view.
 
 My recommendation is to select data needed and pass it while navigating.
 
-## Where should we initialize the observables?
+## Where should we initialize the selectors?
 
-{{ TBD }}
-
-
+  
+When using the selector in the component, it is recommended to initialize in the constructor. If using the strict mode in TypeScript, the compiler will not be able to know that the selectors were initialized on ngOnInit
 
 ## Atomic State and State Machines?
 
