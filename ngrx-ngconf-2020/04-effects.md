@@ -12,12 +12,19 @@ Then register the effects. Note: effects are subscribed immediately
 
 ![](../.gitbook/assets/image%20%2830%29.png)
 
-### Tips
+### 
+
+### Tips & Good Effects Hygiene
 
 * By modularizing the effects \(creating separate effects files for each page\), only the necessary effects are loaded and subscribed when the page is loaded.
 * **It is recommended to not use resolvers** since we can dispatch the actions using effects
+* Prefer the use of brackets and `return` statements in arrow function to increase debug-ability
 * An effect **should dispatch a single action,** use a reducer to modify state if multiple props of the state need to be modified
-* Prefer the use of brackets and `return` statements in arrow function to increase debugability
+* Let one effect handle one side effect.
+  * _"If you are having to dispatch multiple actions from a single effect, that's a code smell. It usually means you probably need to create another set of actions or effects. Try to make diagrams of your control flow and define what your actions and side effects are."_
+* _"So in general, an effect dispatching more than 1 action is not advisable. There could be edge cases, but it means perhaps your action is not unique enough."_
+* _"If different actions are calling the same API call, they can share the same effect."_
+* _"Rather than trying to dispatch multiple actions from 1 effect, it is encouraged to create multiple reducers that listens to 1 action dispatched from the effect instead."_
 
 ### What map operator should I use?
 
@@ -58,12 +65,4 @@ It is OK to write effects that don't dispatch any action like the following exam
 Effects can be used to handle a cancelation
 
 ![](../.gitbook/assets/image%20%2831%29.png)
-
-### Good Effects Hygiene
-
-* Let one effect handle one side effect.
-  * _"If you are having to dispatch multiple actions from a single effect, that's a code smell. It usually means you probably need to create another set of actions or effects. Try to make diagrams of your control flow and define what your actions and side effects are."_
-* _"So in general, an effect dispatching more than 1 action is not advisable. There could be edge cases, but it means perhaps your action is not unique enough."_
-* _"If different actions are calling the same API call, they can share the same effect."_
-* _"Rather than trying to dispatch multiple actions from 1 effect, it is encouraged to create multiple reducers that listens to 1 action dispatched from the effect instead."_
 
