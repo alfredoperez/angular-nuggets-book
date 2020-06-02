@@ -23,7 +23,7 @@
 ### Benefits
 
 This makes easier to **debug**, and the specific names makes it **easy to back track.**  
-It is easier to refactoring, because of the SRP if multiple components use the same service is harder to abstract.  
+It is easier to refactor, because of the Single-Responsibility-Principle if multiple components use the same action, it is harder to abstract.  
 
 
 ### Example
