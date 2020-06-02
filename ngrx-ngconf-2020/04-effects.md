@@ -58,11 +58,13 @@ Effects can be used to retry API Calls:
 
 ![](../.gitbook/assets/image%20%2814%29.png)
 
-It is OK to write effects that don't dispatch any action like the following example shows how it is used to open a modal
-
-![](../.gitbook/assets/image%20%2888%29.png)
-
 Effects can be used to handle a cancelation
 
 ![](../.gitbook/assets/image%20%2831%29.png)
+
+
+
+It is OK to write effects that don't dispatch any action like the following example shows how it is used to open a modal
+
+![](../.gitbook/assets/image%20%2888%29.png)
 
