@@ -59,7 +59,7 @@ If the data in the store is only shared by a single view, it should not be in th
 
 #### Use the form value to have the new value
 
-The form should have the new value of the entity. Even if it is a collection of form groups, we should rely that we are gettting the new value from the form.
+The form should have the new value of the entity. Even if it is a collection of form groups, we should rely that we are getting the new value from the form.
 
 **Selector to get Original Data + Transformed Form Value**  
 
