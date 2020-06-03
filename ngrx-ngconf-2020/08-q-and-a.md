@@ -106,11 +106,37 @@ NgRx team says using resolvers is an anti-pattern since the component is not eve
 
 {% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
 
+Effect dominoes are actions that are dispatch which triggers effects that dispatch action and so on.
 
+![Image with the example code of effect domino](https://res.cloudinary.com/practicaldev/image/fetch/s--IZeDJZU1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/2vydfm8ht9z6t73heshi.png)
+
+Instead, Leverage Independent Effects and handle them independently
+
+![Image with the example code for independent effetcs](https://res.cloudinary.com/practicaldev/image/fetch/s--LVQlUlVG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/mdraxbssjel4nj54py28.png)
+
+* Every effect does a specific task \*. We have taken off the parts which are both independent and generic and split them off into their own effects.
+
+####  What happens with multiple effects that interact concurrently with the same data?
+
+It can be refactored into a single effect if they, in fact, rely on the same data
+
+####  How to deal with dependency order for example when one effect need to happen after the other?
+
+By adding more action that signifies that the _effect has completed_, and tied the completion of that effect to an action. If they are more interconnected, they can be modeled as a single effect.
 
 ## Should we use stateless effects?
 
 {% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
+
+
+
+The following example is subscribing to the store.
+
+![Example of an effect that subscribes to a store](https://res.cloudinary.com/practicaldev/image/fetch/s--Z8fAOoDm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/itq83n30h3nwcpaus715.png)
+
+There is no easy way to trace what actions modified the state. This can also trigger that effect starts happening not in purpose when some state changes
+
+> ####  Make the effect based on events
 
 
 
