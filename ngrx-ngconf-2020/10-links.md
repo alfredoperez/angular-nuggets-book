@@ -10,6 +10,14 @@ Slides
 
 {% embed url="https://github.com/CodeSequence/ngrx-workshop-ngconf2020/blob/challenge/NgRxWorkshop.pdf" %}
 
+## Articles
+
+{% embed url="https://dev.to/alfredoperez/my-notes-from-ngrx-workshop-from-ngconf-2020-part-2-actions-1ilh" %}
+
+{% embed url="https://dev.to/alfredoperez/notes-from-advanced-ngrx-43c4" %}
+
+{% embed url="https://wesleygrimes.com/angular/2018/05/30/ngrx-best-practices-for-enterprise-angular-applications" %}
+
 ## Free Workshops
 
 These are the NgRx workshops from the creators from ngconf-19  
@@ -40,6 +48,8 @@ Advanced NgRx
 {% embed url="https://www.youtube.com/watch?v=\_q-HL9YX\_pk" %}
 
 
+
+{% embed url="https://www.youtube.com/watch?v=JP4dEM4bjE8" %}
 
 
 

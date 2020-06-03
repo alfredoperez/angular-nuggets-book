@@ -20,8 +20,6 @@ From the [docs](https://ngrx.io/docs#when-should-i-use-ngrx-for-state-management
 >
 > Try not to over-engineer your state management layer. Data is often fetched via XHR requests or is being sent over a WebSocket, and therefore is handled on the server side. Always ask yourself **when** and **why** to put some data in a client side store and keep alternatives in mind. For example, use routes to reflect applied filters on a list or use a `BehaviorSubject` in a service if you need to store some simple data, such as settings. Mike Ryan gave a very good talk on this topic: [You might not need NgRx](https://youtu.be/omnwu_etHTY)
 
-
-
 ## Is it a bad practice to use a service with `BehaviorSubject` to communicate between components?
 
 The following question was asked:
@@ -63,7 +61,12 @@ If the data in the store is only shared by a single view, it should not be in th
 
 The form should have the new value of the entity. Even if it is a collection of form groups, we should rely that we are gettting the new value from the form.
 
-**Selector to get Original Data + Transformed Form Value**
+**Selector to get Original Data + Transformed Form Value**  
+
+
+{% hint style="info" %}
+Keep original API data in the store
+{% endhint %}
 
 ## **Are resolvers needed when using NgRx?**
 
@@ -85,30 +88,114 @@ There is not a pattern of how to use resolvers when using ngrx. I found the foll
 
 ![](../.gitbook/assets/image%20%28102%29.png)
 
-Recommendations:
-
-* Use a guard if it is needed to navigate somewhere else
-* It is cleaner to have the `dispatch` calls in the  in the same component to visualize what actions is dispatching
-* Avoid resolvers since the component is not even using the router to read the resolved data
+{% hint style="info" %}
+Use a guard to handle re-directs and checks for data  
+  
+It is cleaner to have the `dispatch` calls in the  in the same component to visualize what actions is dispatching  
+  
+NgRx team says using resolvers is an anti-pattern since the component is not even using the router to read the resolved data
+{% endhint %}
 
 ## How to dispatch a single action per effect?
 
 {{ TBD }}
 
+{% embed url="https://twitter.com/brandontroberts/status/1266113040623304704" %}
+
+{% embed url="https://twitter.com/MannIsaac/status/1253126370030485506" %}
+
+{% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
+
+
+
+## Should we use stateless effects?
+
+{% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
+
+
+
 ## Should you use selectors in guards of overlays or modals?
 
-No, It makes it harder to re-use the overlay or modal from any other view.
+It makes it harder to re-use the overlay or modal from any other view.
 
-My recommendation is to select data needed and pass it while navigating.
+![](../.gitbook/assets/image%20%28105%29.png)
+
+This guard is checking the following things:  
+- Any errors in search  
+- Number of tagged objects  
+- Id of the tag object
+
+{% hint style="info" %}
+**Make SRP Guards**. One guard can be checking the current state of search only when the overlay is open from Search. The other guard can check if it is getting the tag Id when  there are not multiple tags  
+  
+**Pass data through router**. It is harder to use guards whenever they rely on data set via store from a different component. In the example we can see that a consumer of this guard needs to set the correct `searchState` even if it is not related to the page where is used.
+{% endhint %}
 
 ## Where should we initialize the selectors?
 
-  
-When using the selector in the component, it is recommended to initialize in the constructor. If using the strict mode in TypeScript, the compiler will not be able to know that the selectors were initialized on ngOnInit
+When using the selector in the component, it is recommended not initialize them in the declaration and instead declared in the constructor
 
-## Atomic State and State Machines?
+```typescript
+export class FindBookPageComponent {
+  searchQuery$: Observable<string>;
+  books$: Observable<Book[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string>;
+
+  constructor(private store: Store<fromBooks.State>) {
+    this.searchQuery$ = store.pipe(
+      select(fromBooks.selectSearchQuery),
+      take(1)
+    );
+    this.books$ = store.pipe(select(fromBooks.selectSearchResults));
+    this.loading$ = store.pipe(select(fromBooks.selectSearchLoading));
+    this.error$ = store.pipe(select(fromBooks.selectSearchError));
+  }
+
+  search(query: string) {
+    this.store.dispatch(FindBookPageActions.searchBooks({ query }));
+  }
+}
+```
+
+If using the strict mode in TypeScript, the compiler will not be able to know that the selectors were initialized on `ngOnInit`
+
+
+
+{% embed url="https://mariusschulz.com/blog/strict-property-initialization-in-typescript" %}
+
+{% embed url="https://indepth.dev/a-look-at-major-features-in-the-angular-ivy-version-9-release/\#strict-mode" %}
+
+The `strictPropertyInitialization` is added by default in the `--strict` mode in Angular 9.
+
+Also, it adds the following checks:
+
+```bash
+{
+  "//": "tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true
+  }
+}
+```
+
+> The strict-mode allows us to write much safe and robust application. Honestly, I think all Angular application should be written in strict-mode, but it is a little hard to understand every error messages caused by the compiler.
+
+{% embed url="https://medium.com/lacolaco-blog/guide-for-type-safe-angular-6e9562499d93" %}
+
+## Atomic State and State Machines in NgRx?
 
 {{ TBD }}
+
+{% embed url="https://twitter.com/robocell/status/1257339635048603650" %}
+
+{% embed url="https://www.youtube.com/watch?v=JP4dEM4bjE8" %}
+
+
 
 ## How and where to handle loading and error states of ajax calls?
 

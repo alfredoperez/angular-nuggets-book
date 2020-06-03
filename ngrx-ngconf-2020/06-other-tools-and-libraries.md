@@ -45,8 +45,8 @@ export const metaReducers: MetaReducer<State>[] = [logger];
 
 * New in NgRx version 9 with Ivy support!
 * @ngrx/components uses observables to detect changes and schedules the change detection
-* Instead of "foo$ \| async", use "foo$ \| ngRxPush"
-* Instead of "_ngIf=foo$ \| async as foo" use "_ngrxLet=foo$"
+* [https://ngrx.io/guide/component/push](https://ngrx.io/guide/component/push) Instead of "foo$ \| async", use "foo$ \| ngRxPush"
+* [https://ngrx.io/guide/component/let](https://ngrx.io/guide/component/let) Instead of "_ngIf=foo$ \| async as foo" use "_ngrxLet=foo$"
 
 
 
