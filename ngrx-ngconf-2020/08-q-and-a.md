@@ -128,17 +128,13 @@ By adding more action that signifies that the _effect has completed_, and tied t
 
 {% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
 
-
-
 The following example is subscribing to the store.
 
 ![Example of an effect that subscribes to a store](https://res.cloudinary.com/practicaldev/image/fetch/s--Z8fAOoDm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/itq83n30h3nwcpaus715.png)
 
-There is no easy way to trace what actions modified the state. This can also trigger that effect starts happening not in purpose when some state changes
-
-> ####  Make the effect based on events
-
-
+{% hint style="info" %}
+Make stateless effects and based on events.
+{% endhint %}
 
 ## Should you use selectors in guards of overlays or modals?
 
@@ -228,6 +224,10 @@ Also, it adds the following checks:
 {{ TBD }}
 
 {% embed url="https://medium.com/angular-in-depth/ngrx-how-and-where-to-handle-loading-and-error-states-of-ajax-calls-6613a14f902d" %}
+
+## Linter?
+
+{% embed url="https://github.com/timdeschryver/ngrx-tslint-rules" %}
 
 
 

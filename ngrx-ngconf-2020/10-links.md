@@ -18,6 +18,18 @@ Slides
 
 {% embed url="https://wesleygrimes.com/angular/2018/05/30/ngrx-best-practices-for-enterprise-angular-applications" %}
 
+## Application Examples
+
+{% embed url="https://stackblitz.com/edit/angular-ngrx-chuck-norris" %}
+
+
+
+{% embed url="https://github.com/ngrx/platform/tree/master/projects/example-app" %}
+
+{% embed url="https://github.com/wesleygrimes/managing-file-uploads-with-ngrx/blob/master/libs/file-upload/src/lib/state/file-upload.selectors.ts" %}
+
+
+
 ## Free Workshops
 
 These are the NgRx workshops from the creators from ngconf-19  
