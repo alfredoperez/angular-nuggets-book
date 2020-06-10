@@ -64,7 +64,7 @@ The form should have the new value of the entity. Even if it is a collection of 
 **Selector to get Original Data + Transformed Form Value**  
 
 
-{% hint style="info" %}
+{% hint style="success" %}
 Keep original API data in the store
 {% endhint %}
 
@@ -88,17 +88,180 @@ There is not a pattern of how to use resolvers when using ngrx. I found the foll
 
 ![](../.gitbook/assets/image%20%28102%29.png)
 
+{% hint style="success" %}
+Use a guard to handle re-directs and checks for data
+{% endhint %}
+
+> From Mike Ryan
+>
+> Resolvers and guards are totally fine to use with NgRx. Keep in mind that the goal of @ngrx/effects is to **isolate side effects** from your components to keep rendering pure. Resolvers and guards are another means of isolating those side effects.
+>
+> With that being said, I'll tell you how I approach those problems.   
+> - First, I don't use resolvers or guards.  
+> - I have my components dispatch actions like `[Books Page] Enter` to signal that the user has entered a certain page.  
+>   
+> These actions typically flip some kind of `loading` flag in state to `true`. These pages use selectors to reading the loading flag and hide their content until `loading` becomes `false`.  
+>   
+>  In the meantime they show some kind of **spinner or progress bar.** If multiple pages need the same data it becomes really easy to model that with an effect, where the effect starts off like this:
+>
+> ```typescript
+> this.actions$.pipe(
+>   ofType(enterBooksPage, enterAuthorsPage, enterOverviewPage),
+>   exhaustMap(...)
+> );
+> ```
+
+
+
+{% hint style="success" %}
+Use a guards to handle re-directs and checks for data
+{% endhint %}
+
+{% hint style="success" %}
+Prefer to avoid resolvers, since it is cleaner to have the `dispatch` actions in the  in the same component to visualize what actions are dispatched and handle loading states.
+{% endhint %}
+
 {% hint style="info" %}
-Use a guard to handle re-directs and checks for data  
-  
-It is cleaner to have the `dispatch` calls in the  in the same component to visualize what actions is dispatching  
-  
-NgRx team says using resolvers is an anti-pattern since the component is not even using the router to read the resolved data
+Re-use effects when they get same data that is needed for multipleow and where to handle loading and error states of AJAX calls?
+{% endhint %}
+
+
+
+## How to handle loading and error states?
+
+{% embed url="https://medium.com/angular-in-depth/ngrx-how-and-where-to-handle-loading-and-error-states-of-ajax-calls-6613a14f902d" %}
+
+### Handling errors
+
+When the only component that needs to handle the error is a **snackbar** or any other type of **pop-up,** then Effects can handle that error.
+
+```typescript
+// Dispatch is set to false, so this effect will not try to dispatch
+// the result of this effect.
+@Effect({ dispatch: false })
+handleFetchError: Observable<unknown> = this.actions$.pipe(
+  ofType(actions.FETCH_PRODUCTS_ERROR),
+  map(() => {
+    // Setting the timeout, so that angular would re-run change detection.
+    setTimeout(
+      () =>
+        this.snackBar.open('Error fetching products', 'Error', {
+          duration: 2500,
+        }),
+      0);
+  })
+);
+```
+
+When is needed in the component, subscribe to it using `Actions`
+
+```typescript
+@Component({
+  selector: 'app-movies-page',
+  template: `
+    <h1>Movies Page</h1>
+    <div *ngIf="error$ | async as error">
+      {{ error }}
+    </div>
+    <button (click)="reload()">Refresh List</button>
+  `
+})
+export class MoviesPageComponent {
+  error$: BehaviorSubject<string>;
+
+  constructor(
+    private store: Store<fromRoot.State>,
+    actions$: Actions,
+  ) {
+    this.error$ = new BehaviorSubject<string>('');
+    actions$.pipe(
+      ofType('[Movies/API] Load Movies Failure'),
+    ).subscribe(this.error$);
+      
+   this.store.dispatch({ type: '[Movies Page] Load Movies' });
+  }
+
+  reload() {
+    this.error.next('');
+    this.store.dispatch({ type: '[Movies Page] Load Movies' });
+  }
+}
+```
+
+The **advantages** of such an approach are that the error becomes part of the **local state of the Component**, and as a result, this error is **cleaned up** when Component is destroyed.
+
+It also helps if we hydrate/rehydrate Store State to and from `localStorage` via meta-reducer, we wouldn’t be saving/restoring the State with _**Error**._
+
+This does not work to well if you have multiple components that rely in the same error
+
+### Handling  `loading`  state
+
+A `isLoading` state is necessary when loading data from a cached list or loading data in chunks
+
+### Handling `Success/Loaded` State
+
+This should be used that much. Since we are working with a collection `Result[]` the initial/loading state should be `null` and loaded/success state should `[]` or with tdata.
+
+### All-in-one State
+
+We could combine them all under a **single state property**, and still get the error message if needed. It also helps eliminate the invalid states, such as `{ isLoading: true, error: 'Failed', isLoaded: true }`
+
+```typescript
+export const enum LoadingState {
+    INIT = 'INIT',
+    LOADING = 'LOADING',
+    LOADED = 'LOADED',
+}
+export interface ErrorState {
+    errorMsg: string;
+}
+
+export type CallState = LoadingState | ErrorState;
+
+// Helper function to extract error, if there is one.
+export function getError(callState: CallState): string | null { 
+    if ((callState as ErrorState).errorMsg !== undefined) { 
+        return (callState as ErrorState).errorMsg;
+    } 
+    return null;
+}
+```
+
+The reducer becomes cleaner and prone to errors
+
+![](../.gitbook/assets/image%20%28105%29.png)
+
+Helper `getError` function can be used in the selectors.
+
+![](../.gitbook/assets/image%20%28109%29.png)
+
+## Atomic State and State Machines in NgRx?
+
+{% embed url="https://youtu.be/JP4dEM4bjE8" %}
+
+{% embed url="https://twitter.com/robocell/status/1257339635048603650" %}
+
+The idea is that sometimes **multiple state variables are related**, but no one of them is derivable from any other one. People expend a lot of effort trying to keep these variables in sync with each other, and often have bugs when they don't succeed.
+
+A classic example is when working with forms, people might track whether the form is: `dirty`, `valid` `submitting`, `submitted`,`canceled`, `rejected`, etc.
+
+These states are not necessarily derivable from each other, but often change in concert with each other = they are not atomic.
+
+In such circumstances, this might point to the presence of another variable that IS atomic, from which our data can be derived, and reduces the complexity of our store.
+
+In this case, we can look to a state machine. More information on state machines here:
+
+[https://css-tricks.com/robust-react-user-interfaces-with-finite-state-machines/](https://css-tricks.com/robust-react-user-interfaces-with-finite-state-machines/)
+
+So in our form example, we could store the state of our form state machine in our `state` and update that in our reducers.
+
+Then, we **use selectors to get back all the variables** we needed before based on the single state machine state variable.
+
+{% hint style="success" %}
+Use atomic state to represent state of components and rely on selectors to get back variables like `dirty, submitted, canceled, etc.`
 {% endhint %}
 
 ## How to dispatch a single action per effect?
-
-{{ TBD }}
 
 {% embed url="https://twitter.com/brandontroberts/status/1266113040623304704" %}
 
@@ -106,7 +269,31 @@ NgRx team says using resolvers is an anti-pattern since the component is not eve
 
 {% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
 
-Effect dominoes are actions that are dispatch which triggers effects that dispatch action and so on.
+### AHA - Avoid Hasty Abstraction
+
+If somebody submits a form to put some to-do sent they might dispatch actions to:
+
+1. Post the to-do
+2. Open a toast
+3. Go to the dashboard
+
+```typescript
+function submitFormCommands({todo}){
+  this.store.dispatch(postTodo());
+  this.store.dispatch(openToast('Form Submitted));
+  this.store.dispatch(navigateTo('Dashboard));
+}
+```
+
+Instead, this should dispatch a single action and all the different steps should be handle in the effect.
+
+```typescript
+function submitFormCommands({todo}){
+    this.store.dispatch(todoSubmitted());
+}
+```
+
+### Avoid Effect Dominoes
 
 ![Image with the example code of effect domino](https://res.cloudinary.com/practicaldev/image/fetch/s--IZeDJZU1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/2vydfm8ht9z6t73heshi.png)
 
@@ -124,6 +311,61 @@ It can be refactored into a single effect if they, in fact, rely on the same dat
 
 By adding more action that signifies that the _effect has completed_, and tied the completion of that effect to an action. If they are more interconnected, they can be modeled as a single effect.
 
+### Mike's Answer
+
+I think you have two ways to go about this. First, only use one action. Then you can either...
+
+Have one effect that gets all of the data:
+
+```typescript
+this.actions$.pipe(
+   ofType(enterPageAction),
+   exhaustMap(() => forkJoin(this.http.get('a'), this.http.get('b'))
+);
+```
+
+Have multiple effects each listening to the same action:
+
+```typescript
+this.actions$.pipe(
+   ofType(enterPageAction),
+   exhaustMap(() => this.http.get('a'))
+);
+
+this.actions$.pipe(
+   ofType(enterPageAction),
+   exhaustMap(() => this.http.get('b'))
+);
+```
+
+### Example 1 - Effect with multiple dispatches
+
+
+
+![](../.gitbook/assets/image%20%28107%29.png)
+
+![](../.gitbook/assets/image%20%28112%29.png)
+
+![](../.gitbook/assets/image%20%28111%29.png)
+
+### Example 2 - state and selectors
+
+![](../.gitbook/assets/image%20%28108%29.png)
+
+### Example 3 - Resolvers 
+
+![](../.gitbook/assets/image%20%28106%29.png)
+
+![](../.gitbook/assets/image%20%28113%29.png)
+
+### Example 4 - Effect
+
+![](../.gitbook/assets/image%20%28110%29.png)
+
+{% hint style="danger" %}
+Avoid hasty abstractions when using dispatching actions. Remember to actions are related to events and not commands
+{% endhint %}
+
 ## Should we use stateless effects?
 
 {% embed url="https://twitter.com/brandontroberts/status/1253144569606295552" %}
@@ -136,11 +378,11 @@ The following example is subscribing to the store.
 Make stateless effects and based on events.
 {% endhint %}
 
-## Should you use selectors in guards of overlays or modals?
+## Should you have stateless in guards and resolvers of overlays or modals?
 
 It makes it harder to re-use the overlay or modal from any other view.
 
-![](../.gitbook/assets/image%20%28105%29.png)
+![](../.gitbook/assets/image%20%28114%29.png)
 
 This guard is checking the following things:  
 - Any errors in search  
@@ -182,8 +424,6 @@ export class FindBookPageComponent {
 
 If using the strict mode in TypeScript, the compiler will not be able to know that the selectors were initialized on `ngOnInit`
 
-
-
 {% embed url="https://mariusschulz.com/blog/strict-property-initialization-in-typescript" %}
 
 {% embed url="https://indepth.dev/a-look-at-major-features-in-the-angular-ivy-version-9-release/\#strict-mode" %}
@@ -209,23 +449,7 @@ Also, it adds the following checks:
 
 {% embed url="https://medium.com/lacolaco-blog/guide-for-type-safe-angular-6e9562499d93" %}
 
-## Atomic State and State Machines in NgRx?
-
-{{ TBD }}
-
-{% embed url="https://twitter.com/robocell/status/1257339635048603650" %}
-
-{% embed url="https://www.youtube.com/watch?v=JP4dEM4bjE8" %}
-
-
-
-## How and where to handle loading and error states of ajax calls?
-
-{{ TBD }}
-
-{% embed url="https://medium.com/angular-in-depth/ngrx-how-and-where-to-handle-loading-and-error-states-of-ajax-calls-6613a14f902d" %}
-
-## Linter?
+## Linter
 
 {% embed url="https://github.com/timdeschryver/ngrx-tslint-rules" %}
 
