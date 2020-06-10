@@ -20,6 +20,10 @@ From the [docs](https://ngrx.io/docs#when-should-i-use-ngrx-for-state-management
 >
 > Try not to over-engineer your state management layer. Data is often fetched via XHR requests or is being sent over a WebSocket, and therefore is handled on the server side. Always ask yourself **when** and **why** to put some data in a client side store and keep alternatives in mind. For example, use routes to reflect applied filters on a list or use a `BehaviorSubject` in a service if you need to store some simple data, such as settings. Mike Ryan gave a very good talk on this topic: [You might not need NgRx](https://youtu.be/omnwu_etHTY)
 
+{% hint style="info" %}
+SHARI principle  can be used to find out if you need to put the state into store
+{% endhint %}
+
 ## Is it a bad practice to use a service with `BehaviorSubject` to communicate between components?
 
 The following question was asked:
@@ -44,6 +48,10 @@ The following are from the "Advanced NgRx" Workshop from ng-conf 2019
 
 
 ![](../.gitbook/assets/image%20%2895%29.png)
+
+{% hint style="info" %}
+It is ok to user service with subjects to handle component state even when the project already has NgRx and a store.
+{% endhint %}
 
 ## How to keep the old model and new model when editing an entity?
 
