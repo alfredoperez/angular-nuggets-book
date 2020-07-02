@@ -26,6 +26,10 @@
 
 * [Introduction](advanced-ngrx-ng-conf-2019/introduction.md)
 
+## ng-conf-2020: Reactive Fundamentals with RxJS
+
+* [Untitled](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled.md)
+
 ## NgRx courses and videos
 
 * [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ngrx-courses-and-videos/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)

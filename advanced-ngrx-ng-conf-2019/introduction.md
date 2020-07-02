@@ -6,6 +6,10 @@ Feature modules with state included
 
 ### Rules of thumb. You probably don't need NgRx
 
+
+
+![](../.gitbook/assets/image%20%28115%29.png)
+
 Consider:
 
 * Service with Behavior Subject 
@@ -28,7 +32,7 @@ Consider:
       * Component is reusable and flexible
     * No knowledge of stores, services, selectors, actions, etc.
 * Easy upgrade path to NgRx
-
+* 
 
 
 ![](../.gitbook/assets/image%20%2824%29.png)
@@ -48,4 +52,10 @@ Do not try to cheat by creating a single action that updates everything. **Actio
 ![](../.gitbook/assets/image%20%2878%29.png)
 
 ![](../.gitbook/assets/image%20%281%29.png)
+
+
+
+
+
+
 
