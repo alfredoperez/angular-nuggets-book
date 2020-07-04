@@ -118,16 +118,14 @@ Personally, I like how the `example-app` is organized. One of the things that I 
 │            books-api.actions.ts
 │            books-page.actions.ts
 │            index.ts                  // Includes creating names for the exports
-│        effects\
-|            books.effects.spec.ts 
-|            books.effects.ts 
-|        models\
-|            books.ts 
-│        reducers\
-|            books.reducer.spec.ts 
-|            books.reducer.ts 
-|            collection.reducer.ts 
-|            index.ts 
+│        
+|        books.effects.spec.ts 
+|        books.effects.ts 
+|        books.reducer.spec.ts 
+|        books.reducer.ts 
+|        books.selectors.ts 
+|        books.selectors.spec.ts 
+|        index.ts 
 │     
 ├─ reducers\
 │        index.ts  /// Defines the root state and reducers
