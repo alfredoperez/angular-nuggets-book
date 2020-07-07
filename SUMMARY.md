@@ -34,6 +34,7 @@
 
 * [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ngrx-courses-and-videos/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)
 * [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ngrx-courses-and-videos/untitled.md)
+* [ng-conf-20: Reactive Angular](ngrx-courses-and-videos/ng-conf-20-reactive-angular.md)
 
 ## Accessibility Training <a id="accessibility"></a>
 
