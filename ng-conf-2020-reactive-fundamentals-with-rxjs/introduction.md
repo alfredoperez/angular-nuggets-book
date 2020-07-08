@@ -1,4 +1,4 @@
-# Introduction
+# ng-conf-2019: Advanced NgRx
 
 ### Organization
 

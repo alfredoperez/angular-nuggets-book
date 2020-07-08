@@ -22,19 +22,21 @@
 * [09 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
 * [10 - Best Practices and Pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
 
-## Advanced NgRx - ng-conf 2019
+## Workshops Notes <a id="ng-conf-2020-reactive-fundamentals-with-rxjs"></a>
 
-* [Introduction](advanced-ngrx-ng-conf-2019/introduction.md)
-
-## ng-conf-2020: Reactive Fundamentals with RxJS
-
-* [Untitled](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled.md)
+* [ng-conf-2019: Advanced NgRx](ng-conf-2020-reactive-fundamentals-with-rxjs/introduction.md)
+* [ng-conf-20: Reactive Fundamentals with RxJS - Part 1](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled.md)
+* [ng-conf-20: Reactive Fundamentals with RxJS - Part 2](ng-conf-2020-reactive-fundamentals-with-rxjs/ng-conf-20-reactive-fundamentals-with-rxjs-part-2.md)
 
 ## NgRx courses and videos
 
 * [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ngrx-courses-and-videos/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)
 * [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ngrx-courses-and-videos/untitled.md)
-* [ng-conf-20: Reactive Angular](ngrx-courses-and-videos/ng-conf-20-reactive-angular.md)
+
+## Cheatsheet
+
+* [ng-conf-20: Reactive Angular](cheatsheet/ng-conf-20-reactive-angular.md)
+* [All](cheatsheet/all.md)
 
 ## Accessibility Training <a id="accessibility"></a>
 
