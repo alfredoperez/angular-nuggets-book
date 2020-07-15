@@ -27,6 +27,7 @@
 * [ng-conf-2019: Advanced NgRx](ng-conf-2020-reactive-fundamentals-with-rxjs/introduction.md)
 * [ng-conf-20: Reactive Fundamentals with RxJS - Part 1](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled.md)
 * [ng-conf-20: Reactive Fundamentals with RxJS - Part 2](ng-conf-2020-reactive-fundamentals-with-rxjs/ng-conf-20-reactive-fundamentals-with-rxjs-part-2.md)
+* [RxJS in Angular](ng-conf-2020-reactive-fundamentals-with-rxjs/rxjs-in-angular.md)
 
 ## NgRx courses and videos
 
