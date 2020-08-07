@@ -60,7 +60,9 @@
 
 ## Performance
 
+* [Async Rendering with a single Rx Operator](performance/async-rendering-with-a-single-rx-operator.md)
 * [Improving ngFor using trackBy pipe](performance/improving-ngfor-using-trackby-pipe.md)
+* [Advanced caching with RxJS](performance/advanced-caching-with-rxjs.md)
 * [Angular quicklink Preloading Strategy](performance/angular-quicklink-preloading-strategy.md)
 
 ## NX
