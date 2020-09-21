@@ -23,6 +23,49 @@ Do not be afraid of repeating code for unit tests and make sure to have all the 
 * Use Test Doubles to isolate dependencies
 
 {% hint style="info" %}
-Prefer to use spies over mocks to avoid having to mock all the dependencies and instead mcok the method returned value when it is needed
+Prefer to use spies over mocks to avoid having to mock all the dependencies and instead mock the method returned value when it is needed
 {% endhint %}
+
+### Unit Test Types in Angular
+
+* **Isolated**: only the class, mocking everything
+* **Integration**: Compiling components and using the injector 
+  * **Shallow**: mock out related components
+  * **Deep**: include all components
+
+### Best Practices
+
+* Prefer to test the initial state separately
+* Every test should test a single state case. It is possible to have multiple assertions to test a single test 
+
+```typescript
+it('should add a new message to the list when add is called', () => {
+    const service = new MessageService();
+
+    const message = 'new Message';
+    service.add('new Message');
+
+    expect(service.messages[0]).toBe(message);
+    expect(service.messages.length).toBe(1);
+  });
+```
+
+* Create a test for every different result or behavior that the method can have
+* Make sure to include boundary testing when needed. In the following, it means to test the boundaries that give different result \(E.g. 5,10,20, 25\) 
+
+```typescript
+transform(value: number): string {
+    if (value < 10) {
+      return value + ' (weak)';
+    } else if (value >= 10 && value < 20) {
+      return value + ' (strong)';
+    } else {
+      return value + ' (unbelievable)';
+    }
+  }
+```
+
+* Tests should not expect a specific order. Tests should be able to run isolated.  
+
+
 
