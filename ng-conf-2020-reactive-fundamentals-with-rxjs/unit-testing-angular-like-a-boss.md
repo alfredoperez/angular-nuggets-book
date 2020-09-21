@@ -26,13 +26,6 @@ Do not be afraid of repeating code for unit tests and make sure to have all the 
 Prefer to use spies over mocks to avoid having to mock all the dependencies and instead mock the method returned value when it is needed
 {% endhint %}
 
-### Unit Test Types in Angular
-
-* **Isolated**: only the class, mocking everything
-* **Integration**: Compiling components and using the injector 
-  * **Shallow**: mock out related components
-  * **Deep**: include all components
-
 ### Best Practices
 
 * Prefer to test the initial state separately
@@ -50,7 +43,7 @@ it('should add a new message to the list when add is called', () => {
   });
 ```
 
-* Create a test for every different result or behavior that the method can have
+* Create a test for every different result or behavior that the method has
 * Make sure to include boundary testing when needed. In the following, it means to test the boundaries that give different result \(E.g. 5,10,20, 25\) 
 
 ```typescript
@@ -65,7 +58,18 @@ transform(value: number): string {
   }
 ```
 
-* Tests should not expect a specific order. Tests should be able to run isolated.  
+* Tests should not expect a specific order. Tests should be able to run isolated.
+* 
+## Unit Test Types in Angular
+
+* **Isolated**: only the class, mocking everything
+* **Integration**: Compiling components and using the injector 
+  * **Shallow**: mock out related components
+  * **Deep**: include all components
+
+### Isolated Tests
+
+###   
 
 
 
