@@ -453,9 +453,9 @@ Also, it adds the following checks:
 }
 ```
 
-> The strict-mode allows us to write much safe and robust application. Honestly, I think all Angular application should be written in strict-mode, but it is a little hard to understand every error messages caused by the compiler.
-
-{% embed url="https://medium.com/lacolaco-blog/guide-for-type-safe-angular-6e9562499d93" %}
+> The strict-mode allows us to write much safe and robust application. Honestly, I think all Angular application should be written in strict-mode, but it is a little hard to understand every error messages c
+>
+> aused by the compiler.
 
 ## Linter
 
