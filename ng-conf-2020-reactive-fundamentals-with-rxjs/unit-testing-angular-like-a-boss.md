@@ -59,15 +59,58 @@ transform(value: number): string {
 ```
 
 * Tests should not expect a specific order. Tests should be able to run isolated.
-* 
+* Unit tests help to write better code, documents the requirements of code
+
 ## Unit Test Types in Angular
 
 * **Isolated**: only the class, mocking everything
 * **Integration**: Compiling components and using the injector 
-  * **Shallow**: mock out related components
+  * **Shallow**: Builds the component via the TestBed and mock out or ignore related components
   * **Deep**: include all components
 
-### Isolated Tests
+#### Component Fixture
+
+Access to the component, its DOM, and change detection
+
+* `componentInstance` - the instance of the component created by TestBed
+* `debugElement`- provides insight into the component and its DOM element
+* `nativeElement`- the native DOM element at the root of the component
+* `detectChanges()` - trigger a change detection cycle for the component
+
+#### Debug Element
+
+Insights into the component's DOM representation
+
+* parent / children - the immediate parent or children of this `DebugElement`
+* `query`\(predicate\) - search for one descendant that matches
+* `queryAll`\(predicate\) - search for many descendants that match
+* injector - this component's injector
+* listeners - this callback handlers for this component's events and `@Outputs`
+* `triggerEventHandler`\(listener\) - trigger an event or `@Output`
+
+#### Querying the DOM
+
+* NativeElement provides:
+  * `querySelector`\(cssSelector\)
+  * `querySelectorAll`\(cssSelector\)
+* DebugElement provides:
+  * `query`\(predicate\)
+  * `queryAll`\(predicate\)
+* Predicates can be created by helpers:
+  * `By.css`\(selector\)
+  * `By.directive`\(DirectiveType\)
+
+#### Interacting with the  DOM
+
+* `nativeElement` - can't use outside the browser
+  * `dispatchEvent`
+  * `textContent`
+* `debugElement` - doesn't have access to textContent
+  * `triggerEventHandler`
+  * properties
+  * attributes
+  * classes
+  * styles
 
 ###   
 
