@@ -31,6 +31,7 @@
 * [Unit Testing Angular Like a Boss](ng-conf-2020-reactive-fundamentals-with-rxjs/unit-testing-angular-like-a-boss.md)
 * [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ng-conf-2020-reactive-fundamentals-with-rxjs/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)
 * [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-1.md)
+* [Kaitlyn Ekdahl "Making the Most of NgRx Selectors" l Angular International Women's Day 2020](ng-conf-2020-reactive-fundamentals-with-rxjs/kaitlyn-ekdahl-making-the-most-of-ngrx-selectors-l-angular-international-womens-day-2020.md)
 
 ## Cheatsheet
 
