@@ -22,6 +22,10 @@
 * [09 - Q&A](ngrx-ngconf-2020/08-q-and-a.md)
 * [10 - Best Practices and Pitfalls](ngrx-ngconf-2020/09-rules-of-thumb-and-pitfalls.md)
 
+## Enterprise NG 2020
+
+* [Links](enterprise-ng-2020/links.md)
+
 ## Workshops Notes <a id="ng-conf-2020-reactive-fundamentals-with-rxjs"></a>
 
 * [ng-conf-2019: Advanced NgRx](ng-conf-2020-reactive-fundamentals-with-rxjs/introduction.md)
@@ -29,9 +33,11 @@
 * [ng-conf-20: Reactive Fundamentals with RxJS - Part 2](ng-conf-2020-reactive-fundamentals-with-rxjs/ng-conf-20-reactive-fundamentals-with-rxjs-part-2.md)
 * [RxJS in Angular](ng-conf-2020-reactive-fundamentals-with-rxjs/rxjs-in-angular.md)
 * [Unit Testing Angular Like a Boss](ng-conf-2020-reactive-fundamentals-with-rxjs/unit-testing-angular-like-a-boss.md)
+* [State Machines in Javascript with XState](ng-conf-2020-reactive-fundamentals-with-rxjs/state-machines-in-javascript-with-xstate.md)
 * [Advanced NgRx: Complex Angular State Management - JavaScript Marathon](ng-conf-2020-reactive-fundamentals-with-rxjs/advanced-ngrx-complex-angular-state-management-javascript-marathon.md)
 * [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-1.md)
 * [Kaitlyn Ekdahl "Making the Most of NgRx Selectors" l Angular International Women's Day 2020](ng-conf-2020-reactive-fundamentals-with-rxjs/kaitlyn-ekdahl-making-the-most-of-ngrx-selectors-l-angular-international-womens-day-2020.md)
+* [Untitled](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-2.md)
 
 ## Cheatsheet
 
