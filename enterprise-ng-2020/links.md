@@ -30,11 +30,7 @@
 * **GitHub**: [https://github.com/CypressCecelia/cypress-testing-angular-workshop](https://github.com/CypressCecelia/cypress-testing-angular-workshop)
 * **Recordings**:
 
-**🔥   BUILDING BETTER, SCALABLE ENTERPRISE ANGULAR APPLICATIONS**
-
-* **Date**: Monday, November 16th, 2020 \| 2:00 PM - 5:00 PM Mountain Time.
-* **GitHub**: [https://github.com/IgniteUI/ng-conf-2020-workshop](https://github.com/IgniteUI/ng-conf-2020-workshop)
-* **Recordings**:
+   ****
 
 ## Other
 
@@ -48,6 +44,12 @@
 
 * **Date**: Monday, November 16th, 2020 \| 10:00 AM - 1:00 PM
 * **GitHub**: [https://github.com/ndmanvar/ng-conf-2020-sentry-workshop](https://github.com/ndmanvar/ng-conf-2020-sentry-workshop)
+* **Recordings**:
+
+**BUILDING BETTER, SCALABLE ENTERPRISE ANGULAR APPLICATIONS**
+
+* **Date**: Monday, November 16th, 2020 \| 2:00 PM - 5:00 PM Mountain Time.
+* **GitHub**: [https://github.com/IgniteUI/ng-conf-2020-workshop](https://github.com/IgniteUI/ng-conf-2020-workshop)
 * **Recordings**:
 
 **KENDO UI IN YOUR ANGULAR APPS**

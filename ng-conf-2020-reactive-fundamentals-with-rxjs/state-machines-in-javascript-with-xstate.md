@@ -8,26 +8,26 @@
 
 
 
-![](../.gitbook/assets/image%20%28210%29.png)
-
-
-
 ![](../.gitbook/assets/image%20%28212%29.png)
 
-![](../.gitbook/assets/image%20%28215%29.png)
 
-![](../.gitbook/assets/image%20%28213%29.png)
+
+![](../.gitbook/assets/image%20%28214%29.png)
+
+![](../.gitbook/assets/image%20%28219%29.png)
+
+![](../.gitbook/assets/image%20%28215%29.png)
 
 * Finite States \(Mode/Status\): idle, pending, resolved, rejected
 * Transitions: from Idle to pending
 * Events: fetch, resolve, reject
 * Initial state 
 
-![](../.gitbook/assets/image%20%28216%29.png)
+![](../.gitbook/assets/image%20%28222%29.png)
 
 * Final State 
 
-![](../.gitbook/assets/image%20%28209%29.png)
+![](../.gitbook/assets/image%20%28210%29.png)
 
 ### Creating a state machine
 

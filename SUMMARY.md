@@ -25,6 +25,7 @@
 ## Enterprise NG 2020
 
 * [Links](enterprise-ng-2020/links.md)
+* [ADVANCED USAGE OF AG-GRID](enterprise-ng-2020/advanced-usage-of-ag-grid.md)
 
 ## Workshops Notes <a id="ng-conf-2020-reactive-fundamentals-with-rxjs"></a>
 
