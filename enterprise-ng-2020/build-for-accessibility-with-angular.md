@@ -2,7 +2,8 @@
 
 * **Date**: Wednesday, November 18th, 2020 \| 10:00 AM - 5:00 PM Mountain Time.
 * **GitHub**: [https://github.com/M2D2co/build-for-accessibility-with-angular/blob/main/requirements.md](https://github.com/M2D2co/build-for-accessibility-with-angular/blob/main/requirements.md)
-* **Recordings**:
+* **Recordings**:[ https://us02web.zoom.us/j/83591702321](%20https://us02web.zoom.us/j/83591702321)
+* **Passcode**: Enterpr1se!
 
 ## Notes
 
