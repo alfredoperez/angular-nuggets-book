@@ -8,8 +8,37 @@
 
 ## Learnings
 
+#### API Request 
+
+* States
+  * init
+  * idle
+  * pending
+  * resolved
+* Actions
+  * Fetch
+  * Stop
+  * Retry
+
+#### Component 
+
 * States
   * 
+* Actions
+
+#### Ideas for Ngrx Entity
+
+```text
+const entitySate = {
+  state,
+  retries,
+  query
+}
+```
+
+
+
+
 
 
 
@@ -69,7 +98,7 @@ const transition = (state, event) => {
 output(transition('idle', 'FETCH'))
 ```
 
-![](../../.gitbook/assets/image%20%28272%29.png)
+![](../../.gitbook/assets/image%20%28276%29.png)
 
 The interpreter keeps track of the current state and knows what to do after effect happen a 
 
@@ -85,9 +114,17 @@ const send = (event)=>{
 
 ```
 
+![](../../.gitbook/assets/image%20%28273%29.png)
 
+![](../../.gitbook/assets/image%20%28275%29.png)
 
+![](../../.gitbook/assets/image%20%28272%29.png)
 
+![](../../.gitbook/assets/image%20%28274%29.png)
+
+![](../../.gitbook/assets/image%20%28277%29.png)
+
+![](../../.gitbook/assets/image%20%28278%29.png)
 
 \*\*\*\*
 
