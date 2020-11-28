@@ -11,20 +11,24 @@
 #### API Request 
 
 * States
-  * init
-  * idle
-  * pending
+  * pending /stopping
+  * failed
+  * rejected
   * resolved
+  * stopped
 * Actions
-  * Fetch
+  * Fetch / FetchAll / Query / Update / Set / Delete / Create
   * Stop
   * Retry
 
 #### Component 
 
 * States
-  * 
+  * init
+  * loading
+  * loaded / idle
 * Actions
+  * * 
 
 #### Ideas for Ngrx Entity
 
@@ -98,7 +102,7 @@ const transition = (state, event) => {
 output(transition('idle', 'FETCH'))
 ```
 
-![](../../.gitbook/assets/image%20%28276%29.png)
+![](../../.gitbook/assets/image%20%28278%29.png)
 
 The interpreter keeps track of the current state and knows what to do after effect happen a 
 
@@ -114,17 +118,27 @@ const send = (event)=>{
 
 ```
 
-![](../../.gitbook/assets/image%20%28273%29.png)
-
 ![](../../.gitbook/assets/image%20%28275%29.png)
-
-![](../../.gitbook/assets/image%20%28272%29.png)
-
-![](../../.gitbook/assets/image%20%28274%29.png)
 
 ![](../../.gitbook/assets/image%20%28277%29.png)
 
-![](../../.gitbook/assets/image%20%28278%29.png)
+![](../../.gitbook/assets/image%20%28274%29.png)
+
+![](../../.gitbook/assets/image%20%28276%29.png)
+
+![](../../.gitbook/assets/image%20%28279%29.png)
+
+![](../../.gitbook/assets/image%20%28280%29.png)
+
+### Guarded Transitions
+
+![](../../.gitbook/assets/image%20%28273%29.png)
+
+### Transient Transitions
+
+![](../../.gitbook/assets/image%20%28272%29.png)
+
+\*\*\*\*
 
 \*\*\*\*
 
