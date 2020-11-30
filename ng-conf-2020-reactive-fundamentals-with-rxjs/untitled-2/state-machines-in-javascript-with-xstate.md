@@ -17,7 +17,7 @@
   * resolved
   * stopped
 * Actions
-  * Fetch / FetchAll / Query / Update / Set / Delete / Create
+  * Fetch / FetchAll / Query / Update / Set / Delete / Create / invoke
   * Stop
   * Retry
 
@@ -108,7 +108,7 @@ const transition = (state, event) => {
 output(transition('idle', 'FETCH'))
 ```
 
-![](../../.gitbook/assets/image%20%28283%29.png)
+![](../../.gitbook/assets/image%20%28284%29.png)
 
 The interpreter keeps track of the current state and knows what to do after effect happen a 
 
@@ -126,15 +126,15 @@ const send = (event)=>{
 
 ![](../../.gitbook/assets/image%20%28276%29.png)
 
-![](../../.gitbook/assets/image%20%28280%29.png)
+![](../../.gitbook/assets/image%20%28281%29.png)
 
 ![](../../.gitbook/assets/image%20%28275%29.png)
 
-![](../../.gitbook/assets/image%20%28278%29.png)
-
-![](../../.gitbook/assets/image%20%28284%29.png)
+![](../../.gitbook/assets/image%20%28279%29.png)
 
 ![](../../.gitbook/assets/image%20%28285%29.png)
+
+![](../../.gitbook/assets/image%20%28286%29.png)
 
 ### Guarded Transitions
 
@@ -146,25 +146,29 @@ const send = (event)=>{
 
 ### Delayed Transtions
 
-![](../../.gitbook/assets/image%20%28286%29.png)
-
 ![](../../.gitbook/assets/image%20%28287%29.png)
 
-![](../../.gitbook/assets/image%20%28281%29.png)
-
-### Nested or Hierarchical States
-
-![](../../.gitbook/assets/image%20%28279%29.png)
+![](../../.gitbook/assets/image%20%28288%29.png)
 
 ![](../../.gitbook/assets/image%20%28282%29.png)
 
+### Nested or Hierarchical States
+
+![](../../.gitbook/assets/image%20%28280%29.png)
+
+![](../../.gitbook/assets/image%20%28283%29.png)
+
 ### History States
 
-![](../../.gitbook/assets/image%20%28277%29.png)
+![](../../.gitbook/assets/image%20%28278%29.png)
 
 #### Parallel / Orthogonal states
 
 ![](../../.gitbook/assets/image%20%28272%29.png)
+
+### The actor model
+
+![](../../.gitbook/assets/image%20%28277%29.png)
 
 
 
