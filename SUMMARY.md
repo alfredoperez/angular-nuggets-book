@@ -39,6 +39,7 @@
 * [ngHouston - Managing HTTP Requests w/ NgRx w/ Wes Grimes](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-1.md)
 * [Kaitlyn Ekdahl "Making the Most of NgRx Selectors" l Angular International Women's Day 2020](ng-conf-2020-reactive-fundamentals-with-rxjs/kaitlyn-ekdahl-making-the-most-of-ngrx-selectors-l-angular-international-womens-day-2020.md)
 * [Front End Masters](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-2/README.md)
+  * [Introduction to Gatsby](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-2/introduction-to-gatsby.md)
   * [State Machines in Javascript with XState](ng-conf-2020-reactive-fundamentals-with-rxjs/untitled-2/state-machines-in-javascript-with-xstate.md)
 
 ## Cheatsheet
