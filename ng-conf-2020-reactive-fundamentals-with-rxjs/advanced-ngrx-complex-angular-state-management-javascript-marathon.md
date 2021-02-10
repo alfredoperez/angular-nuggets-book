@@ -79,9 +79,9 @@ Instead Leverage Independent Effects and handle them independently
 
 Every effect does a specifc task. We have taken off the parts which are both independent and generic and split them off into thir own effects. 
 
-#### What happens with multiple effects that interacto concurrently with the same data?
+#### What happens with multiple effects that interact concurrently with the same data?
 
- It can be refactoerd into a single effect If they in fact rely on the same data
+ It can be refactored into a single effect If they in fact rely on the same data
 
 #### How to deal with dependency order? when one effect need to happen after the other?
 
